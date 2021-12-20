@@ -1,0 +1,7 @@
+{
+  "name": "Give It Away",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

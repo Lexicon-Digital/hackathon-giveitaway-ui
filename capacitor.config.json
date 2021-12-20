@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Give It Away",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
