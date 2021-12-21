@@ -11,8 +11,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const zoom = 5;
   return (
     <div className="container">
-      <strong>{name}</strong>
-      <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
         <MapComponent center={center} zoom={zoom} />
     </div>
   );
