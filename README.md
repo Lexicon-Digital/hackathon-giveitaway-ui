@@ -4,6 +4,7 @@ Pre-requisite
 
 ```
 npm install -g @ionic/cli
+git clone git@github.com:Lexicon-Digital/hackathon-giveitaway-ui.git
 ```
 
 Building the app
