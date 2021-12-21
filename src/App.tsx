@@ -23,6 +23,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import AddItemButton from './components/AddItemButton';
 
 setupIonicReact();
 
@@ -31,12 +32,16 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
+        
+
           <Menu />
+          
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
               <Redirect to="/page/Explore" />
             </Route>
             <Route path="/page/:name" exact={true}>
+            <AddItemButton />
               <Page />
             </Route>
             <Route path="/test-page" exact={true}>

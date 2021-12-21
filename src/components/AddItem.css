@@ -1,3 +1,24 @@
-.add-item-menu-container{
-    display:none;
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
 }
+
+.input-field {
+    background-color: white;
+    border-color: #DBDBDB;
+    padding: 1rem;
+    border: 2px solid #DBDBDB;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: black
+}
+
+.label {
+    color: #768994
+}
+
+.item-picture-container{
+    margin-bottom: 1rem;
+}
+
