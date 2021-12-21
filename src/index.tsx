@@ -4,12 +4,15 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+const renderApp = () => {
+  return (
+    // <GeolocationContextProvider>
+        <App />
+    // </GeolocationContextProvider>
+  );
+};
+ReactDOM.render(renderApp(), document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
