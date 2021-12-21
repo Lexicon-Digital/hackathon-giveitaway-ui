@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Circle, GoogleMap, LoadScript, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { Geolocation } from '@capacitor/geolocation';
+import PreviewItem from "./PreviewItem";
+import './PreviewItem.css'
+
+import defaultImage from './../images/hard-rubbish-collection.jpeg'
 
 
 const containerStyle = {
@@ -11,8 +15,8 @@ const containerStyle = {
 
 
 const MapContainer: React.FC = () => {
-  
 
+  const [clicked, setClicked] = React.useState(false);
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -21,9 +25,9 @@ const MapContainer: React.FC = () => {
   const [map, setMap] = React.useState(null)
 
   const onLoad = React.useCallback(async function callback(map) {
-    
+
     const coordinates = await Geolocation.getCurrentPosition();
-    
+
     var myPlace = new google.maps.LatLng(coordinates.coords.latitude, coordinates.coords.longitude);
     console.log('myPlace', myPlace);
 
@@ -63,30 +67,56 @@ const MapContainer: React.FC = () => {
     ]
 
     const contentString =
-    '<div id="content">' +
-    '<div id="siteNotice">' +
-    "</div>" +
-    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-    '<div id="bodyContent">' +
-    "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-    "sandstone rock formation in the southern part of the " +
-    "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-    "south west of the nearest large town, Alice Springs; 450&#160;km " +
-    "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-    "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-    "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-    "Aboriginal people of the area. It has many springs, waterholes, " +
-    "rock caves and ancient paintings. Uluru is listed as a World " +
-    "Heritage Site.</p>" +
-    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-    "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-    "(last visited June 22, 2009).</p>" +
-    "</div>" +
-    "</div>";
+      // '<div id="content">' +
+      // '<div id="siteNotice">' +
+      // "</div>" +
+      // '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+      // '<div id="bodyContent">' +
+      // "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
+      // "sandstone rock formation in the southern part of the " +
+      // "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+      // "south west of the nearest large town, Alice Springs; 450&#160;km " +
+      // "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
+      // "features of the Uluru - Kata Tjuta National Park. Uluru is " +
+      // "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
+      // "Aboriginal people of the area. It has many springs, waterholes, " +
+      // "rock caves and ancient paintings. Uluru is listed as a World " +
+      // "Heritage Site.</p>" +
+      // '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+      // "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+      // "(last visited June 22, 2009).</p>" +
+      // "</div>" +
+      // "</div>";
+      '<div className="preview-box-container">' +
+      '<div className="preview-box">' +
+      '<div className="title-container">' +
+      '<p className="title">Want To Take It Away</p>' +
+      '</div>' +
+      '<div>' +
+      '<img className="item-picture" src={defaultImage} alt="couch photo" />' +
+      '</div>' +
+      '<div className="name-of-product-container">' +
+      '<p className="name-of-product">Couch</p>' +
+      '</div>' +
+      '<div className="description-container">' +
+      '<p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem ex perferendis aut repellat, adipisci sequi, molestias labore error, corrupti eum alias assumenda a magni perspiciatis quia iure neque fuga vero!</p>' +
+      '</div>' +
+      '<div className="pickup-instructions-container">' +
+      '<p className="pickup-instructions">' +
+      '   Located on  my driveway at 455 Bourke st' +
+      '</p>' +
+      '</div>' +
+      '<div className="publish-date-container">' +
+      '<p className="publish-date">' +
+      '08/10/2021 13:00' +
+      '</p>' +
+      '</div>'+
+    '</div>' +
+      '</div>';
 
-  const infowindow = new google.maps.InfoWindow({
-    content: contentString,
-  });
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
 
     // Create markers.
     for (let i = 0; i < listings.length; i++) {
@@ -105,7 +135,7 @@ const MapContainer: React.FC = () => {
           shouldFocus: false,
         });
       });
-      
+
     }
 
     setMap(map);
@@ -116,15 +146,17 @@ const MapContainer: React.FC = () => {
   }, [])
 
 
-  return isLoaded ? ( 
+  return isLoaded ? (
+    <>
+      { }
       <GoogleMap
         mapContainerStyle={containerStyle}
         options={{ streetViewControl: false, fullscreenControl: false }}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-      </GoogleMap>
+      </GoogleMap></>
   ) : <><div>Loading ...</div></>;
 };
-  
-  export default MapContainer;
+
+export default MapContainer;

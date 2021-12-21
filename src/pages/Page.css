@@ -1,0 +1,15 @@
+.Map{
+    z-index: -1;
+    position: relative;
+}
+
+.header {
+    padding: 0.5rem 0rem;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    height: 70px;
+}

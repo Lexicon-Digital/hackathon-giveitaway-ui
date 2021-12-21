@@ -6,7 +6,7 @@ import defaultImage from './../images/hard-rubbish-collection.jpeg'
 const PreviewItem: React.FC = () => {
 
     return (
-        <div>
+        <div className="preview-box-container">
             <div className="preview-box">
                 <div className="title-container">
                     <p className="title">Want To Take It Away</p>

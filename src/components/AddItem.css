@@ -22,3 +22,6 @@
     margin-bottom: 1rem;
 }
 
+.add-item-menu-container {
+    overflow-y: scroll
+}

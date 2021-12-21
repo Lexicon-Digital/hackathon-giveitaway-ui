@@ -1,7 +1,10 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
+import AddItemButton from '../components/AddItemButton';
 import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
+
+import Logo from './../images/logo.png'
 
 const Page: React.FC = () => {
 
@@ -9,16 +12,14 @@ const Page: React.FC = () => {
 
   return (
     <IonPage>
+      <AddItemButton />
       <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Give It Away!</IonTitle>
-        </IonToolbar>
+        <div className="header">
+          <img className="logo" src={Logo} /> 
+        </div>
       </IonHeader>
 
-      <IonContent fullscreen>
+      <IonContent  className="Map">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">{name}</IonTitle>

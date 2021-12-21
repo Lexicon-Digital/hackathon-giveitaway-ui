@@ -34,7 +34,7 @@ const AddItemMenu: React.FC = () => {
                     <div className="form">
                         <label className="label" htmlFor="name-of-item">Name Of Item*</label>
                         <input id="name-of-item" className="input-field" type="text" placeholder="Couch" {...register("Name Of Item", { required: true, maxLength: 80 })} />
-                        
+
                         <label className="label" htmlFor="description">Description*</label>
                         <textarea className="input-field" id="description" placeholder="e.g  White couch with grey stripes" {...register("Description", { required: true, maxLength: 155 })} />
 
@@ -51,9 +51,7 @@ const AddItemMenu: React.FC = () => {
                     <input type="submit" />
                 </form>
             </div>
-            <div>
-
-            </div>
+            
         </>
     )
 }
