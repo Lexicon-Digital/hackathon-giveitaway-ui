@@ -12,7 +12,7 @@ const PreviewItem: React.FC = () => {
                     <p className="title">Want To Take It Away</p>
                 </div>
                 <div>
-                    <img className="item-picture" src="assets/hard-rubbish-collection.jpeg" alt="couch photo" />
+                    <img className="item-picture" src={defaultImage} alt="couch photo" />
                 </div>
                 <div className="name-of-product-container">
                     <p className="name-of-product">Couch</p>
