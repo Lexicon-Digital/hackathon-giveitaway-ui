@@ -22,8 +22,10 @@
 }
 
 .item-picture {
-    height: 15rem;
-    width : auto;
+    /* height: 15rem;
+    width : auto; */
+    display: flex;
+    justify-content: center;
 }
 
 .name-of-product {

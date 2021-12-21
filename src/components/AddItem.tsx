@@ -23,7 +23,7 @@ const AddItemMenu: React.FC = () => {
 
             </div>
             <div>
-                <img className="item-picture" src={defaultImage} alt="couch photo" />
+                {/* <img className="item-picture" src={defaultImage} alt="couch photo" /> */}
             </div>
         </>
     )
