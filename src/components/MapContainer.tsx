@@ -9,11 +9,6 @@ const containerStyle = {
   marginTop: "20px",
 };
 
-interface Listing {
-  id: number,
-  lat: number,
-  lng: number
-}
 
 const MapContainer: React.FC = () => {
   
@@ -38,18 +33,16 @@ const MapContainer: React.FC = () => {
     map.fitBounds(bounds);
     map.setZoom(16);
 
-    const iconBase =
-    "http://maps.google.com/mapfiles/kml/shapes/";
-
     const icons: Record<string, { icon: string }> = {
       person: {
-        icon: iconBase + "man.png",
+        icon: "assets/body.svg",
       },
       listing: {
-        icon: iconBase + "grocery.png",
+        icon: "assets/item.svg",
       },
     };
 
+    // retrieve this later from the API
     const listings = [
       {
         position: new google.maps.LatLng(coordinates.coords.latitude - 0.0010, coordinates.coords.longitude + 0.0010),
@@ -75,6 +68,7 @@ const MapContainer: React.FC = () => {
       const marker = new google.maps.Marker({
         position: listings[i].position,
         icon: icons[listings[i].type].icon,
+        title: "Item",
         map: map,
       });
       
@@ -96,7 +90,7 @@ const MapContainer: React.FC = () => {
         onUnmount={onUnmount}
       >
       </GoogleMap>
-  ) : <></>;
+  ) : <><div>Loading ...</div></>;
 };
   
   export default MapContainer;
