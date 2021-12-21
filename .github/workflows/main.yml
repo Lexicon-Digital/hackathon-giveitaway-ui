@@ -9,8 +9,7 @@ on:
 jobs:
   build:
     uses: Lexicon-Digital/hackathon-giveitaway-ui/.github/workflows/build.yml@main
-  deploy-prod:
-    needs: deploy-staging
+  deploy:
     uses: Lexicon-Digital/hackathon-giveitaway-ui/.github/workflows/deploy.yml@main
     with:
       environment: prod
