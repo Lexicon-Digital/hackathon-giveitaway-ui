@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './PreviewItem.css'
-import defaultImage from './../images/hard-rubbish-collection.jpeg'
+const defaultImage = 'assets/hard-rubbish-collection.jpeg';
 
 const PreviewItem: React.FC = () => {
 
@@ -12,7 +12,7 @@ const PreviewItem: React.FC = () => {
                     <p className="title">Want To Take It Away</p>
                 </div>
                 <div>
-                    <img className="item-picture" src={defaultImage} alt="couch photo" />
+                    <img className="item-picture" src="assets/hard-rubbish-collection.jpeg" alt="couch photo" />
                 </div>
                 <div className="name-of-product-container">
                     <p className="name-of-product">Couch</p>
