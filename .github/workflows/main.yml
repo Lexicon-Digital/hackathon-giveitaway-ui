@@ -1,0 +1,16 @@
+---
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: Lexicon-Digital/hackathon-giveitaway-ui/.github/workflows/build.yml@main
+  deploy-prod:
+    needs: deploy-staging
+    uses: Lexicon-Digital/hackathon-giveitaway-ui/.github/workflows/deploy.yml@main
+    with:
+      environment: prod

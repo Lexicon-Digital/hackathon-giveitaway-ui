@@ -1,0 +1,38 @@
+---
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: 👷‍♀️ Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👥  Clone repository
+        uses: actions/checkout@v2
+
+      - name: 💻 Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: 🖨️  Print node/npm version
+        run: node -v && npm -v
+
+      - name: ⚙️  NPM install
+        run: npm ci
+
+      - name: 🏗️  Build production bundle
+        run: npm run build
+
+      - name: 🔢 Add build version number
+        run: echo "${{github.run_id}}" > ./build/build.txt
+
+      - name: ⬆️  Upload build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: giveitaway-build
+          path: build/
