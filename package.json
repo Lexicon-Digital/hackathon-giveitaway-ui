@@ -2,6 +2,7 @@
   "name": "give-it-away",
   "version": "0.0.1",
   "private": true,
+  "proxy": "https://00mz8r2bn9.execute-api.ap-southeast-2.amazonaws.com/",
   "dependencies": {
     "@capacitor/app": "1.0.7",
     "@capacitor/core": "3.3.3",
